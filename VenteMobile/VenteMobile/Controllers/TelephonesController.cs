@@ -48,7 +48,7 @@ namespace VenteMobile.Controllers
         // GET: Telephones/Create
         public IActionResult Create()
         {
-            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierId");
+            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque");           
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace VenteMobile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TelephoneId,TelephoneModel,TelephoneCout,TelephoneCouleur,ManufacturierId")] Telephone telephone)
+        public async Task<IActionResult> Create([Bind("TelephoneId,TelephoneModel,TelephoneCout,TelephoneCouleur,ManufacturierId,ManufacturierMarque")] Telephone telephone)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace VenteMobile.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierId", telephone.ManufacturierId);
+            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", telephone.ManufacturierId);
             return View(telephone);
         }
 

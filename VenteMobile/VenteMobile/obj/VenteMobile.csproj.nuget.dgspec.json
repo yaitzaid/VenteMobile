@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
+    "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
+    "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "projectUniqueName": "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
         "projectName": "VenteMobile",
-        "projectPath": "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "projectPath": "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
         "packagesPath": "C:\\Users\\Youness\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\obj\\",
+        "outputPath": "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

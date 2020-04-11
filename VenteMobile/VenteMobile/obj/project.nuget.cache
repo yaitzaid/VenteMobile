@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jcB11V8t+840pNyJ39WaefAH2Ne5L6OLUrfqao9e24gZFE1BCrj7b214Q6vCi59KCKU7GluiiP1IcJRViMtW3A==",
+  "dgSpecHash": "1CvVspCvV9mPXM3Hx5FgljC1gFMrFXHmxUiVYIyKS55d/nckh2/JlVoKghbtJynC6JdGi9IK7ahuGSHB8dWBEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Youness\\source\\repos\\Projet_V1\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+  "projectFilePath": "C:\\Users\\Youness\\source\\test\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Youness\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Youness\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
