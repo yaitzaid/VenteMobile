@@ -1,0 +1,40 @@
+﻿@model VenteMobile.Models.Manufacturier
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Manufacturier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ManufacturierMarque" class="control-label"></label>
+                <input asp-for="ManufacturierMarque" class="form-control" />
+                <span asp-validation-for="ManufacturierMarque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManufacturierSiteWeb" class="control-label"></label>
+                <input asp-for="ManufacturierSiteWeb" class="form-control" />
+                <span asp-validation-for="ManufacturierSiteWeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManufacturierOrigine" class="control-label"></label>
+                <input asp-for="ManufacturierOrigine" class="form-control" />
+                <span asp-validation-for="ManufacturierOrigine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

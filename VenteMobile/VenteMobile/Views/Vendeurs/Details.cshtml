@@ -1,0 +1,36 @@
+﻿@model VenteMobile.Models.Vendeur
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vendeur</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VendeurNom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VendeurNom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VendeurAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VendeurAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VendeurNoTel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VendeurNoTel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VendeurId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

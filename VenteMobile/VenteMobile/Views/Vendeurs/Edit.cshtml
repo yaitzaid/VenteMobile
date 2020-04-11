@@ -1,0 +1,41 @@
+﻿@model VenteMobile.Models.Vendeur
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vendeur</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VendeurId" />
+            <div class="form-group">
+                <label asp-for="VendeurNom" class="control-label"></label>
+                <input asp-for="VendeurNom" class="form-control" />
+                <span asp-validation-for="VendeurNom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendeurAddress" class="control-label"></label>
+                <input asp-for="VendeurAddress" class="form-control" />
+                <span asp-validation-for="VendeurAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendeurNoTel" class="control-label"></label>
+                <input asp-for="VendeurNoTel" class="form-control" />
+                <span asp-validation-for="VendeurNoTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

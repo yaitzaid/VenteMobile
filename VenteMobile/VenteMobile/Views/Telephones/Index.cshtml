@@ -1,0 +1,53 @@
+﻿@model IEnumerable<VenteMobile.Models.Telephone>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TelephoneModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelephoneCout)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelephoneCouleur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelephoneModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelephoneCout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelephoneCouleur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TelephoneId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TelephoneId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TelephoneId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
