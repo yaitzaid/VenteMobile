@@ -82,7 +82,7 @@ namespace VenteMobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierId", telephone.ManufacturierId);
+            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", telephone.ManufacturierId);
             return View(telephone);
         }
 
@@ -118,7 +118,7 @@ namespace VenteMobile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierId", telephone.ManufacturierId);
+            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", telephone.ManufacturierId);
             return View(telephone);
         }
 

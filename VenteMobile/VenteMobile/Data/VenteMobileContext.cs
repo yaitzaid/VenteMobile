@@ -14,10 +14,12 @@ namespace VenteMobile.Data
         {
         }
 
-        public DbSet<VenteMobile.Models.Critique> Critique { get; set; }
-        public DbSet<VenteMobile.Models.Vendeur> Vendeur { get; set; }
-        public DbSet<VenteMobile.Models.Manufacturier> Manufacturier { get; set; }
-        public DbSet<VenteMobile.Models.Telephone> Telephone { get; set; }
+        public DbSet<Critique> Critique { get; set; }
+        public DbSet<Vendeur> Vendeur { get; set; }
+        public DbSet<Manufacturier> Manufacturier { get; set; }
+        public DbSet<Telephone> Telephone { get; set; }
+        public DbSet<VendeurManufacturier> VendeurManufacturier { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TelephoneVendeur>()
@@ -42,5 +44,7 @@ namespace VenteMobile.Data
                 .WithMany(v => v.VendeursManufacturiers)
                 .HasForeignKey(mv => mv.VendeurId);
         }
+
+        public DbSet<VenteMobile.Models.TelephoneVendeur> TelephoneVendeur { get; set; }
     }
 }

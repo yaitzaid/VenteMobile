@@ -4,25 +4,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h6>Liste des Téléphone</h6>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Ajouter</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TelephoneModel)
+                @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
+                Modèle
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TelephoneCout)
+                @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
+                Prix
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TelephoneCouleur)
+                @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
+                Couleur
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Manufacturier)
+                @*@Html.DisplayNameFor(model => model.Manufacturier)*@
+                Fabricant
             </th>
             <th></th>
         </tr>
@@ -43,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TelephoneId">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.TelephoneId">Modifier</a> |
                 <a asp-action="Details" asp-route-id="@item.TelephoneId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TelephoneId">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.TelephoneId">Supprimer</a>
             </td>
         </tr>
 }

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VenteMobile.Models.VendeurManufacturier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendeur.VendeurNom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

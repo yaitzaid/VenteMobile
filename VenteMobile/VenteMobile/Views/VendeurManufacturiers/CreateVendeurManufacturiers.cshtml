@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "CreateVendeurManufacturiers";
+}
+
+<h1>CreateVendeurManufacturiers</h1>
+
+<form action="/VendeurManufacturiers/CreateVendeurManufacturiers" method="post">
+    Manufacturier @Html.DropDownList("ManufacturierId")
+    <ul style='list-style-type:none;'>
+        @foreach (var Vendeur in ViewBag.Vendeurs)
+        {
+            <li>
+                <input type="checkbox" name="VendeurId" value="@Vendeur.VendeurId" />@Vendeur.VendeurNom
+            </li>
+        }
+    </ul>
+
+    <input type="submit" value="Assigner une manifacturier" />
+</form>

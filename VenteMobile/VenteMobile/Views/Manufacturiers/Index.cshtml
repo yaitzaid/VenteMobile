@@ -4,22 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+    <h6>Liste Des Manufacturiers</h6>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Ajouter</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ManufacturierMarque)
+                @*@Html.DisplayNameFor(model => model.ManufacturierMarque)*@
+                Marque
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ManufacturierSiteWeb)
+                @*@Html.DisplayNameFor(model => model.ManufacturierSiteWeb)*@
+                Site Web
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ManufacturierOrigine)
+                @*@Html.DisplayNameFor(model => model.ManufacturierOrigine)*@
+                Siège social
             </th>
             <th></th>
         </tr>
@@ -37,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.ManufacturierOrigine)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ManufacturierId">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.ManufacturierId">Modifier</a> |
                 <a asp-action="Details" asp-route-id="@item.ManufacturierId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ManufacturierId">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.ManufacturierId">Supprimer</a>
             </td>
         </tr>
 }

@@ -4,41 +4,39 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Telephone</h4>
+    <h6>Ajouter un telephone</h6>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TelephoneModel" class="control-label"></label>
+                <label asp-for="TelephoneModel" class="control-label"><B>Modèle</B></label>
                 <input asp-for="TelephoneModel" class="form-control" />
                 <span asp-validation-for="TelephoneModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TelephoneCout" class="control-label"></label>
+                <label asp-for="TelephoneCout" class="control-label"><B>Prix</B></label>
                 <input asp-for="TelephoneCout" class="form-control" />
                 <span asp-validation-for="TelephoneCout" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TelephoneCouleur" class="control-label"></label>
+                <label asp-for="TelephoneCouleur" class="control-label"><B>Couleur</B></label>
                 <input asp-for="TelephoneCouleur" class="form-control" />
                 <span asp-validation-for="TelephoneCouleur" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Manufacturier" class="control-label"></label>
+                <label asp-for="Manufacturier" class="control-label"><B>Fabriquant</B></label>
                 <select asp-for="ManufacturierId" class ="form-control" asp-items="ViewBag.ManufacturierId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Créer" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour à la liste</a>
 </div>
 

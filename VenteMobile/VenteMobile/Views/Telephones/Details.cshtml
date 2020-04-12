@@ -4,39 +4,43 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+    <h6>Details de Telephone</h6>
 
 <div>
-    <h4>Telephone</h4>
+
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelephoneModel)
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
+            Modèle
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TelephoneModel)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelephoneCout)
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
+            Prix
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TelephoneCout)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelephoneCouleur)
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
+            Couleur
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TelephoneCouleur)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturier)
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.Manufacturier)*@
+            Fabriquant
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturier.ManufacturierId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.TelephoneId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.TelephoneId">Modifier</a> |
+    <a asp-action="Index">Retour à la liste</a>
 </div>

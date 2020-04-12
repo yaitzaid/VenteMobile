@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+    <h6>Modifier Manufacturier</h6>
 
-<h4>Manufacturier</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,28 +13,28 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ManufacturierId" />
             <div class="form-group">
-                <label asp-for="ManufacturierMarque" class="control-label"></label>
+                <label asp-for="ManufacturierMarque" class="control-label"><B>Marque</B></label>
                 <input asp-for="ManufacturierMarque" class="form-control" />
                 <span asp-validation-for="ManufacturierMarque" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ManufacturierSiteWeb" class="control-label"></label>
+                <label asp-for="ManufacturierSiteWeb" class="control-label"><B>SiteWeb</B></label>
                 <input asp-for="ManufacturierSiteWeb" class="form-control" />
                 <span asp-validation-for="ManufacturierSiteWeb" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ManufacturierOrigine" class="control-label"></label>
+                <label asp-for="ManufacturierOrigine" class="control-label"><B>Siège social</B></label>
                 <input asp-for="ManufacturierOrigine" class="form-control" />
                 <span asp-validation-for="ManufacturierOrigine" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour à la liste</a>
 </div>
 
