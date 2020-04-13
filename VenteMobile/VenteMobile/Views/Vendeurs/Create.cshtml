@@ -1,38 +1,51 @@
 ﻿@model VenteMobile.Models.Vendeur
 
 @{
-    ViewData["Title"] = "Create";
+    ViewBag.Title = "Cree un vendeur";
+    ViewBag.Icon = Url.Content("~/images/create.png");
 }
 
-<h6>Ajouter un vendeur</h6>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="VendeurNom" class="control-label"><B>Nom</B></label>
-                <input asp-for="VendeurNom" class="form-control" />
-                <span asp-validation-for="VendeurNom" class="text-danger"></span>
+    
+    <div class="form-horizontal" style="margin-top:60px; margin-bottom:10px;">
+        <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Entrer les informations sur le vendur</h4>
+        <div class="dl-horizontal table-bordered jumbotron alert-info " style="color:black;">
+
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label asp-for="VendeurNom" class="control-label"><B>Nom</B></label>
+                                <input asp-for="VendeurNom" class="form-control" />
+                                <span asp-validation-for="VendeurNom" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label asp-for="VendeurAddress" class="control-label"><B>Address</B></label>
+                                <input asp-for="VendeurAddress" class="form-control" />
+                                <span asp-validation-for="VendeurAddress" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label asp-for="VendeurNoTel" class="control-label"><B>NoTel</B></label>
+                                <input asp-for="VendeurNoTel" class="form-control" />
+                                <span asp-validation-for="VendeurNoTel" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                            <div class="col-md-10">
+                                <p>
+                                    <input type="submit" class="btn  btnStyle" style="background-color:green; width:120px;" value="Enregistrer" /> |
+                                    <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+                                </p>
+
+                            </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="VendeurAddress" class="control-label"><B>Address</B></label>
-                <input asp-for="VendeurAddress" class="form-control" />
-                <span asp-validation-for="VendeurAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VendeurNoTel" class="control-label"><B>NoTel</B></label>
-                <input asp-for="VendeurNoTel" class="form-control" />
-                <span asp-validation-for="VendeurNoTel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Créer" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Retour à la liste</a>
-</div>
-

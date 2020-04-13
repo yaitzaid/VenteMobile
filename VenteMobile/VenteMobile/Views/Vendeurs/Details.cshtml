@@ -4,35 +4,43 @@
     ViewData["Title"] = "Details";
 }
 
-    <h6>Details de Vendeur</h6>
 
-<div>    
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @*@Html.DisplayNameFor(model => model.VendeurNom)*@
-            Nom
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VendeurNom)
-        </dd>
-        <dt class="col-sm-2">
-            @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
-            Address
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VendeurAddress)
-        </dd>
-        <dt class="col-sm-2">
-            @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
-            NoTel
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VendeurNoTel)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.VendeurId">Modifier</a> |
-    <a asp-action="Index">Retour à la liste</a>
+<div style="margin-top:60px; margin-bottom:10px;">
+    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Informations sur le Vendeur</h4>
+    <dl class="dl-horizontal table-bordered jumbotron alert-info " style="color:black;">
+
+
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurNom)*@
+                    Nom
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurNom)
+                </dd>
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
+                    Address
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurAddress)
+                </dd>
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
+                    NoTel
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurNoTel)
+                </dd>
+            </dl>
+        
+            <p>
+                <a href="@Url.Action("Edit","Vendeurs",new { id = Model.VendeurId })" class="btn  btnStyle" style="background-color:gray; width:120px;">Edit</a> |
+                <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
+
+            </p>
+       
+          
 </div>
