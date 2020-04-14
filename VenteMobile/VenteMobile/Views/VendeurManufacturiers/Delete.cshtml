@@ -26,6 +26,6 @@
         <input type="hidden" asp-for="VendeurId" />
         <input type="hidden" asp-for="ManufacturierId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Retour à la liste</a>
+        @Html.ActionLink("Cliquer ici pour revenir", "List", "VendeurManufacturiers", new { id = Model.Vendeur.VendeurId })
     </form>
 </div>

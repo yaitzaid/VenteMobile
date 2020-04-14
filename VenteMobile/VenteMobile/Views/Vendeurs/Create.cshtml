@@ -7,7 +7,7 @@
 
 
 @*<div class="form-horizontal" style="margin-top:60px; margin-bottom:10px;">
-    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Entrer les informations sur le vendur</h4>
+    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Entrer les informations sur le vendeur</h4>
     <div class="dl-horizontal table-bordered jumbotron alert-info " style="color:black;">*@
 
 <hr />
@@ -38,9 +38,13 @@
             </div>
 
             <div class="col-md-10">
+                @*<p>
+                        <input type="submit" class="btn  btnStyle" style="background-color:green; width:120px;" value="Enregistrer" /> |
+                        <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+                    </p>*@
                 <p>
-                    <input type="submit" class="btn  btnStyle" style="background-color:green; width:120px;" value="Enregistrer" /> |
-                    <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+                    <input type="submit" class="btn btn-info" value="Créer" /> |
+                    <a href="@Url.Action("Index","Vendeurs")" class="btn btn-info">Back to List</a>
                 </p>
 
             </div>

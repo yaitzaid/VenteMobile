@@ -4,9 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Critique</h4>
+<h3 style="text-align:center"><B> Liste une Critique</B></h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,6 +39,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Cliquer ici pour revenir", "Details", "Telephones", new { id = Model.Telephone.TelephoneId })
 </div>
 

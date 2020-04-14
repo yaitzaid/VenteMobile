@@ -8565,24 +8565,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/ghadadoumyati/.nuget/packages/": {}
+    "C:\\Users\\Mohamed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ghadadoumyati/Desktop/ProjetFinal/VenteMobile/VenteMobile/VenteMobile/VenteMobile.csproj",
+      "projectUniqueName": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
       "projectName": "VenteMobile",
-      "projectPath": "/Users/ghadadoumyati/Desktop/ProjetFinal/VenteMobile/VenteMobile/VenteMobile/VenteMobile.csproj",
-      "packagesPath": "/Users/ghadadoumyati/.nuget/packages/",
-      "outputPath": "/Users/ghadadoumyati/Desktop/ProjetFinal/VenteMobile/VenteMobile/VenteMobile/obj/",
+      "projectPath": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+      "packagesPath": "C:\\Users\\Mohamed\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/ghadadoumyati/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8636,7 +8638,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

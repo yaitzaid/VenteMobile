@@ -1,0 +1,38 @@
+﻿@model VenteMobile.Models.Manufacturier
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h3>Details  @Html.DisplayFor(model => model.ManufacturierMarque)</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ManufacturierMarque)*@
+            Marque
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturierMarque)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ManufacturierSiteWeb)*@
+            SiteWeb
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturierSiteWeb)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ManufacturierOrigine)*@
+            Siège social
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ManufacturierOrigine)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Cliquer ici pour revenir", "List", "VendeurManufacturiers", new { vendeurId = ((Vendeur)ViewBag.Vendeur).VendeurId })
+</div>
+

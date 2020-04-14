@@ -25,9 +25,9 @@
                 @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
                 NoTel
             </th>
-            <th style="text-align:center">
-                Assigner les manifacturier
-            </th>
+            @*<th style="text-align:center">
+                    Assigner les manifacturier
+                </th>*@
             <th style="text-align:center">
                 Opérations
             </th>
@@ -46,9 +46,9 @@
                 <td style="text-align:center">
                     @Html.DisplayFor(modelItem => item.VendeurNoTel)
                 </td>
-                <td style="text-align:center">
-                    @Html.ActionLink("Assigner une manifacturier", "CreateVendeurManufacturierss", "VendeurManufacturiers", new { vendeurId = item.VendeurId })
-                </td>
+                @*<td style="text-align:center">
+                        @Html.ActionLink("Assigner une manifacturier", "CreateVendeurManufacturierss", "VendeurManufacturiers", new { vendeurId = item.VendeurId })
+                    </td>*@
                 <td style="text-align:center">
                     <a href="@Url.Action("Edit",new {id = item.VendeurId})" class="btn btn-info btn-lg">
                         <span class="glyphicon glyphicon-edit"></span>

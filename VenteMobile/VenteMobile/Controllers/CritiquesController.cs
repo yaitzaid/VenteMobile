@@ -46,9 +46,10 @@ namespace VenteMobile.Controllers
         }
 
         // GET: Critiques/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneId");
+            //ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneModel");
+            ViewData["TelephoneId"] = id;
             return View();
         }
 
@@ -63,9 +64,10 @@ namespace VenteMobile.Controllers
             {
                 _context.Add(critique);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Telephones", new { id = critique.TelephoneId });
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneId", critique.TelephoneId);
+            //ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneModel", critique.TelephoneId);
             return View(critique);
         }
 
@@ -82,7 +84,7 @@ namespace VenteMobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneId", critique.TelephoneId);
+            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneModel", critique.TelephoneId);
             return View(critique);
         }
 
@@ -116,9 +118,9 @@ namespace VenteMobile.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Telephones", new { id = critique.TelephoneId });
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneId", critique.TelephoneId);
+            ViewData["TelephoneId"] = new SelectList(_context.Set<Telephone>(), "TelephoneId", "TelephoneModel", critique.TelephoneId);
             return View(critique);
         }
 
@@ -149,7 +151,7 @@ namespace VenteMobile.Controllers
             var critique = await _context.Critique.FindAsync(id);
             _context.Critique.Remove(critique);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Telephones", new { id = critique.TelephoneId });
         }
 
         private bool CritiqueExists(int id)

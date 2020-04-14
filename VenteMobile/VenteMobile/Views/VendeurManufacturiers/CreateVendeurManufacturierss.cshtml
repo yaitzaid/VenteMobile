@@ -1,0 +1,30 @@
+﻿
+@model VenteMobile.Models.Vendeur
+@{
+    ViewData["Title"] = "CreateVendeurManufacturierss";
+
+}
+
+<h7></h7>
+<h3 style="text-align:center"> Assigner une manifacturier a <B>@Model.VendeurNom</B></h3>
+
+<form action="/VendeurManufacturiers/CreateVendeurManufacturierss" method="post">
+
+    <ul style='list-style-type:none;'>
+        @foreach (var Manufacturier in ViewBag.Manufacturier)
+        {
+            <li>
+                <input type="checkbox" name="ManufacturierIds" value="@Manufacturier.ManufacturierId" />@Manufacturier.ManufacturierMarque
+            </li>
+        }
+    </ul>
+
+    <input type="submit" value="Assigner une manifacturier" class="btn btn-default" />
+    @*<a class="btn  btnStyle">
+            @Html.ActionLink("Cliquer ici pour revenir", "List", "VendeurManufacturiers", new { id = Model.VendeurId })
+        </a>*@
+    <a href="@Url.Action("List",  new { id = Model.VendeurId })" class="btn btn-default">
+        <span>Cliquer ici pour revenir</span>
+    </a>
+</form>
+

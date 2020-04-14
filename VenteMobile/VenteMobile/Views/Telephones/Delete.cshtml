@@ -4,9 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h6>Supprimer telephone</h6>
+<h3 style="text-align:center"><B>Supprimer telephone</B></h3>
 <h3>Voulez vous vraiment le supprimer?</h3>
-<div>
+<div class="delete">
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -35,7 +35,7 @@
             Fabriquant
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturier.ManufacturierId)
+            @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
         </dd>
     </dl>
 

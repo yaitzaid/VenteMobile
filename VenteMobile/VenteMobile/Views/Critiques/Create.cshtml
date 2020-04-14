@@ -4,9 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Critique</h4>
+<h3 style="text-align:center"><B>Ajouter une Critique</B></h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -27,11 +25,12 @@
                 <input asp-for="CritiqueNom" class="form-control" />
                 <span asp-validation-for="CritiqueNom" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                    <label asp-for="TelephoneId" class="control-label"></label>
+                    <select asp-for="TelephoneId" class ="form-control" asp-items="ViewBag.TelephoneId"></select>
+                </div>*@
             <div class="form-group">
-                <label asp-for="TelephoneId" class="control-label"></label>
-                <select asp-for="TelephoneId" class ="form-control" asp-items="ViewBag.TelephoneId"></select>
-            </div>
-            <div class="form-group">
+                <input type="hidden" asp-for="TelephoneId" value="@ViewBag.TelephoneId" />
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -39,6 +38,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @*<a asp-controller="Telephones" asp-action="Details" asp-route-id="TelephoneId"></a>*@
+    @Html.ActionLink("Cliquer ici pour revenir", "Details", "Telephones", new { id = @ViewBag.TelephoneId })
 </div>
+
+
 

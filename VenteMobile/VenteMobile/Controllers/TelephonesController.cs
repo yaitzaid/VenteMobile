@@ -35,7 +35,7 @@ namespace VenteMobile.Controllers
             }
 
             var telephone = await _context.Telephone
-                .Include(t => t.Manufacturier)
+                .Include(t => t.Manufacturier).Include(c => c.Critiques)
                 .FirstOrDefaultAsync(m => m.TelephoneId == id);
             if (telephone == null)
             {

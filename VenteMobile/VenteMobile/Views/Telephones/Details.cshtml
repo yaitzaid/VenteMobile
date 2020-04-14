@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h6>Details de Telephone</h6>
+<h3 style="text-align:center"><B>Details de Telephone</B></h3>
 
 <div>
 
@@ -39,6 +39,59 @@
             @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
         </dd>
     </dl>
+</div>
+<div>
+    <a asp-controller="Critiques" asp-action="Create" asp-route-id="@Model.TelephoneId">Ajouter une Critique</a>
+    <h3 style="text-align:center"><B> Liste Des Critiques</B></h3>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueText)*@
+                    Commentaire
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueEtoiles)*@
+                    Etoiles
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueNom)*@
+                    Client
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Telephone)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Critiques)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritiqueText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritiqueEtoiles)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritiqueNom)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Telephone.TelephoneModel)*@
+                    </td>
+                    <td>
+                        <a asp-controller="Critiques" asp-action="Edit" asp-route-id="@item.CritiqueId">Edit</a> |
+                        <a asp-controller="Critiques" asp-action="Details" asp-route-id="@item.CritiqueId">Details</a> |
+                        <a asp-controller="Critiques" asp-action="Delete" asp-route-id="@item.CritiqueId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.TelephoneId">Modifier</a> |
