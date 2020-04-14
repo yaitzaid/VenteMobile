@@ -1,0 +1,35 @@
+﻿
+@model VenteMobile.Models.Vendeur
+@{
+    ViewData["Title"] = "AjouterTelephone";
+
+}
+
+<h7></h7>
+<h3 style="text-align:center"> Assigner un telephone a <B>@Model.VendeurNom</B></h3>
+
+<form action="/TelephoneVendeurs/AjouterTelephone" method="post">
+
+    <ul style='list-style-type:none;'>
+        @foreach (var Telephone in ViewBag.Telephone)
+        {
+            @foreach (var VendManu in ViewBag.VendeurManufacturier)
+            {
+                @if (@Telephone.ManufacturierId == VendManu.ManufacturierId)
+                {
+                    <li>
+                        <input type="checkbox" name="TelephoneIds" value="@Telephone.TelephoneId" />@Telephone.TelephoneModel
+                    </li>
+                }
+
+            }
+        }
+    </ul>
+
+    <input type="submit" value="Assigner un telephone" class="btn btn-default" />
+
+    <a href="@Url.Action("List",  new { id = Model.VendeurId })" class="btn btn-default">
+        <span>Cliquer ici pour revenir</span>
+    </a>
+</form>
+

@@ -27,7 +27,6 @@ namespace VenteMobile.Controllers
         }
         public async Task<IActionResult> List(int vendeurId)
         {
-
             if (vendeurId == 0)
             {
                 vendeurId = Convert.ToInt32(TempData["idV"]);

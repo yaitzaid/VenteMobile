@@ -45,6 +45,25 @@ namespace VenteMobile.Controllers
             return View(telephone);
         }
 
+        public async Task<IActionResult> Detail(int? idT, int? idV)
+        {
+            ViewBag.Vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == idV);
+            if (idT == null)
+            {
+                return NotFound();
+            }
+
+            var telephone = await _context.Telephone
+             .Include(t => t.Manufacturier).Include(c => c.Critiques)
+                .FirstOrDefaultAsync(m => m.TelephoneId == idT);
+            if (telephone == null)
+            {
+                return NotFound();
+            }
+
+            return View(telephone);
+        }
+
         // GET: Telephones/Create
         public IActionResult Create()
         {

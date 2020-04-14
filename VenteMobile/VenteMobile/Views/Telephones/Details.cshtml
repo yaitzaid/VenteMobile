@@ -68,13 +68,16 @@
         <tbody>
             @foreach (var item in Model.Critiques)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CritiqueText)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CritiqueEtoiles)
-                    </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CritiqueText)
+                </td>
+                <td>
+                    @for (int etoile = 0; etoile < (item.CritiqueEtoiles); etoile++)
+                    {
+                        <span class="glyphicon glyphicon-star"></span>
+                    }
+                </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CritiqueNom)
                     </td>

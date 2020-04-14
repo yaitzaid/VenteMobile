@@ -25,10 +25,8 @@ namespace VenteMobile.Controllers
             var venteMobileContext = _context.TelephoneVendeur.Include(t => t.Telephone).Include(t => t.Vendeur);
             return View(await venteMobileContext.ToListAsync());
         }
-
         public async Task<IActionResult> List(int vendeurId)
         {
-
             if (vendeurId == 0)
             {
                 vendeurId = Convert.ToInt32(TempData["idV"]);
@@ -37,14 +35,38 @@ namespace VenteMobile.Controllers
             var venteMobileContext = _context.TelephoneVendeur.Include(v => v.Telephone).Include(v => v.Vendeur).Where(v => v.VendeurId == vendeurId);
             return View(await venteMobileContext.ToListAsync());
         }
+        public async Task<IActionResult> AjouterTelephone(int vendeurId)
+        {
+            ViewBag.VendeurManufacturier = _context.VendeurManufacturier.Include(v => v.Manufacturier).Include(v => v.Vendeur).Where(v => v.VendeurId == vendeurId);
+            ViewBag.Telephone = _context.Telephone;
+            Vendeur vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
+            TempData["idV"] = vendeur.VendeurId;
+            return View(vendeur);
+        }
 
-        //public async Task<IActionResult> AjouterTelephone(int vendeurId)
-        //{
-        //    var Telephone = _context.Telephone.Join(Manufacturier, Telephone => Telephone.ManufacturierId, Manufacturier => Manufacturier.
-        //    Vendeur vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
-        //    TempData["idV"] = vendeur.VendeurId;
-        //    return View(vendeur);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> AjouterTelephone(int vendeurId, int[] TelephoneIds)
+        {
+            vendeurId = Convert.ToInt32(TempData["idV"]);
+            foreach (int TelId in TelephoneIds)
+            {
+                TelephoneVendeur telephoneVendeur = await _context.TelephoneVendeur
+                .Include(t => t.Telephone)
+                .Include(v => v.Vendeur)
+                .FirstOrDefaultAsync(m => m.VendeurId == vendeurId && m.TelephoneId == TelId);
+                if (telephoneVendeur == null)
+                {
+                    telephoneVendeur = new TelephoneVendeur
+                    {
+                        TelephoneId = TelId,
+                        VendeurId = vendeurId
+                    };
+                    _context.TelephoneVendeur.Add(telephoneVendeur);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return RedirectToAction("List", new { id = vendeurId });
+        }
 
         // GET: TelephoneVendeurs/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -69,8 +91,8 @@ namespace VenteMobile.Controllers
         // GET: TelephoneVendeurs/Create
         public IActionResult Create()
         {
-            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneId");
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurId");
+            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneModel");
+            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom");
             return View();
         }
 
@@ -87,8 +109,8 @@ namespace VenteMobile.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneId", telephoneVendeur.TelephoneId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurId", telephoneVendeur.VendeurId);
+            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneModel", telephoneVendeur.TelephoneId);
+            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", telephoneVendeur.VendeurId);
             return View(telephoneVendeur);
         }
 
@@ -105,8 +127,8 @@ namespace VenteMobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneId", telephoneVendeur.TelephoneId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurId", telephoneVendeur.VendeurId);
+            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneModel", telephoneVendeur.TelephoneId);
+            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", telephoneVendeur.VendeurId);
             return View(telephoneVendeur);
         }
 
@@ -142,40 +164,48 @@ namespace VenteMobile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneId", telephoneVendeur.TelephoneId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurId", telephoneVendeur.VendeurId);
+            ViewData["TelephoneId"] = new SelectList(_context.Telephone, "TelephoneId", "TelephoneModel", telephoneVendeur.TelephoneId);
+            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", telephoneVendeur.VendeurId);
             return View(telephoneVendeur);
         }
 
         // GET: TelephoneVendeurs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? idV, int? idT)
         {
-            if (id == null)
+            if (idV == null || idT == null)
             {
                 return NotFound();
             }
 
             var telephoneVendeur = await _context.TelephoneVendeur
-                .Include(t => t.Telephone)
-                .Include(t => t.Vendeur)
-                .FirstOrDefaultAsync(m => m.TelephoneId == id);
+                .Include(v => v.Telephone)
+                .Include(v => v.Vendeur)
+                .FirstOrDefaultAsync(m => m.TelephoneId == idT && m.VendeurId == idV);
             if (telephoneVendeur == null)
             {
                 return NotFound();
             }
 
+            TempData["idV"] = idV;
+            TempData["idT"] = idT;
             return View(telephoneVendeur);
         }
 
         // POST: TelephoneVendeurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int idV, int idT)
         {
-            var telephoneVendeur = await _context.TelephoneVendeur.FindAsync(id);
+
+            idV = Convert.ToInt32(TempData["idV"]);
+            idT = Convert.ToInt32(TempData["idT"]);
+            var telephoneVendeur = await _context.TelephoneVendeur
+                .Include(v => v.Telephone)
+                .Include(v => v.Vendeur)
+                .FirstOrDefaultAsync(m => m.TelephoneId == idT && m.VendeurId == idV);
             _context.TelephoneVendeur.Remove(telephoneVendeur);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("List", new { id = idV });
         }
 
         private bool TelephoneVendeurExists(int id)

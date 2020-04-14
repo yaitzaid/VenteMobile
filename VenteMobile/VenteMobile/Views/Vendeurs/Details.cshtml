@@ -40,6 +40,12 @@
         <dd class="col-sm-10">
             @Html.ActionLink("Cliquer ici pour afficher la liste des manifacturier", "List", "VendeurManufacturiers", new { vendeurId = Model.VendeurId })
         </dd>
+        <dt class="col-sm-2">
+            La liste des Telephones
+        </dt>
+        <dd class="col-sm-10">
+            @Html.ActionLink("Cliquer ici pour afficher la liste des Telephones", "List", "TelephoneVendeurs", new { vendeurId = Model.VendeurId })
+        </dd>
     </dl>
 
     <p>

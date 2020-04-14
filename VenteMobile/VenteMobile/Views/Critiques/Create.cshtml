@@ -11,17 +11,17 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CritiqueText" class="control-label"></label>
+                <label asp-for="CritiqueText" class="control-label"><B>Commentaire</B></label>
                 <input asp-for="CritiqueText" class="form-control" />
                 <span asp-validation-for="CritiqueText" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CritiqueEtoiles" class="control-label"></label>
+                <label asp-for="CritiqueEtoiles" class="control-label"><B>Etoiles</B></label>
                 <input asp-for="CritiqueEtoiles" class="form-control" />
                 <span asp-validation-for="CritiqueEtoiles" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CritiqueNom" class="control-label"></label>
+                <label asp-for="CritiqueNom" class="control-label"><B>Client</B></label>
                 <input asp-for="CritiqueNom" class="form-control" />
                 <span asp-validation-for="CritiqueNom" class="text-danger"></span>
             </div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<VenteMobile.Models.TelephoneVendeur>
+
+@{
+    ViewData["Title"] = "List";
+
+}
+
+<h3 style="text-align:center"><B> Liste Des Telephones vendu par @(((Vendeur)ViewBag.Vendeurs).VendeurNom)</B></h3>
+<p>
+    @Html.ActionLink("Cliquer ici pour revenir", "Details", "Vendeurs", new { id = ((Vendeur)ViewBag.Vendeurs).VendeurId })
+</p>
+<p>
+    @Html.ActionLink("Cliquer ici pour assigner un telephone", "AjouterTelephone", "TelephoneVendeurs", new { vendeurId = ((Vendeur)ViewBag.Vendeurs).VendeurId })
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendeur.VendeurNom)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)*@
+                    @Html.ActionLink(item.Telephone.TelephoneModel, "Detail", "Telephones", new { idT = item.Telephone.TelephoneId, idV = item.Vendeur.VendeurId })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { idV = item.Vendeur.VendeurId, idT = item.Telephone.TelephoneId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

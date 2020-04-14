@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
+    "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
+    "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "projectUniqueName": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
         "projectName": "VenteMobile",
-        "projectPath": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
-        "packagesPath": "C:\\Users\\Mohamed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mohamed\\Desktop\\projetfinalprogavancee\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
+        "projectPath": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "packagesPath": "C:\\Users\\Youness\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Youness\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
