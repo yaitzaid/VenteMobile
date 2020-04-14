@@ -42,6 +42,23 @@ namespace VenteMobile.Controllers
 
             return View(manufacturier);
         }
+        public async Task<IActionResult> Detail(int? idM, int? idV)
+        {
+            ViewBag.Vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == idV);
+            if (idM == null)
+            {
+                return NotFound();
+            }
+
+            var manufacturier = await _context.Manufacturier
+                .FirstOrDefaultAsync(m => m.ManufacturierId == idM);
+            if (manufacturier == null)
+            {
+                return NotFound();
+            }
+
+            return View(manufacturier);
+        }
 
         // GET: Manufacturiers/Create
         public IActionResult Create()

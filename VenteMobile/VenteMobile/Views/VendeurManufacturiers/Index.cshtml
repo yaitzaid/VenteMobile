@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -22,20 +22,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vendeur.VendeurNom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendeur.VendeurNom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { idV = item.Vendeur.VendeurId, idM = item.Manufacturier.ManufacturierId })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

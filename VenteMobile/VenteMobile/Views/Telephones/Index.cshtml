@@ -4,54 +4,68 @@
     ViewData["Title"] = "Index";
 }
 
-<h6>Liste des Téléphone</h6>
+<h3 style="text-align:center"><B> Liste Des Telephones</B></h3>
 
 <p>
-    <a asp-action="Create">Ajouter</a>
+    <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>Ajouter
+    </a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
                 Modèle
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
                 Prix
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
                 Couleur
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.Manufacturier)*@
                 Fabricant
             </th>
-            <th></th>
+            <th style="text-align:center">
+                Opérations
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelephoneModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelephoneCout)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelephoneCouleur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TelephoneId">Modifier</a> |
-                <a asp-action="Details" asp-route-id="@item.TelephoneId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TelephoneId">Supprimer</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.TelephoneModel)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.TelephoneCout)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.TelephoneCouleur)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.Manufacturier.ManufacturierMarque)
+                </td>
+                <td style="text-align:center">
+                    @*<a asp-action="Edit" asp-route-id="@item.TelephoneId">Modifier</a> |*@
+                    <a href="@Url.Action("Edit",new {id = item.TelephoneId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a> |
+                    <a href="@Url.Action("Details",new {id = item.TelephoneId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-list"></span>
+                    </a> |
+                    @*<a asp-action="Details" asp-route-id="@item.TelephoneId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TelephoneId">Supprimer</a>*@
+                    <a href="@Url.Action("Delete", new {id = item.TelephoneId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

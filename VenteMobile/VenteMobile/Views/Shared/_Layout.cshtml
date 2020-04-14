@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - cell pas cher</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
 </head>
 <body>
@@ -13,9 +14,8 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> cell pas cher</a>
-                
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
@@ -23,7 +23,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Vendeurs" asp-action="Index">Vendeurs</a>
                         </li>
@@ -34,8 +34,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Manufacturiers" asp-action="Index">Manufacturiers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="VendeurManufacturiers" asp-action="Index">VendeurManufacturiers</a>
-                            <i class="glyphicon glyphicon-envelope"></i>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="VendeurManufacturiers" asp-action="CreateVendeurManufacturiers">Assigner une manifacturier</a>
+
                         </li>
                     </ul>
                 </div>
@@ -43,14 +43,14 @@
         </nav>
     </header>
     <div class="container">
-        
 
-         
-        
+
+
+
     </div>
-    <div >
+    <div>
         @RenderBody()
-       
+
         <footer style="text-align:center;">
             <p>
                 &copy; cell pas cher Tous droits réservés

@@ -4,47 +4,59 @@
     ViewData["Title"] = "Index";
 }
 
-    <h6>Liste Des Manufacturiers</h6>
+<h3 style="text-align:center"><B> Liste Des Manufacturier</B></h3>
 
 <p>
-    <a asp-action="Create">Ajouter</a>
+    <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>Ajouter
+    </a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.ManufacturierMarque)*@
                 Marque
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.ManufacturierSiteWeb)*@
                 Site Web
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.ManufacturierOrigine)*@
                 Siège social
             </th>
-            <th></th>
+            <th style="text-align:center">
+                Opérations
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManufacturierMarque)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManufacturierSiteWeb)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManufacturierOrigine)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ManufacturierId">Modifier</a> |
-                <a asp-action="Details" asp-route-id="@item.ManufacturierId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ManufacturierId">Supprimer</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.ManufacturierMarque)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.ManufacturierSiteWeb)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.ManufacturierOrigine)
+                </td>
+                <td style="text-align:center">
+                    <a href="@Url.Action("Edit",new {id = item.ManufacturierId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a> |
+                    <a href="@Url.Action("Details",new {id = item.ManufacturierId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-list"></span>
+                    </a> |
+                    <a href="@Url.Action("Delete", new {id = item.ManufacturierId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

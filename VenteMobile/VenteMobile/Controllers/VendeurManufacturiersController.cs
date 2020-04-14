@@ -25,30 +25,50 @@ namespace VenteMobile.Controllers
             var venteMobileContext = _context.VendeurManufacturier.Include(v => v.Manufacturier).Include(v => v.Vendeur);
             return View(await venteMobileContext.ToListAsync());
         }
-        public ActionResult CreateVendeurManufacturiers()
+        public async Task<IActionResult> List(int vendeurId)
         {
-          ViewBag.ManufacturierId= new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque");
-            ViewBag.Vendeurs = _context.Vendeur;
-            return View();
+
+            if (vendeurId == 0)
+            {
+                vendeurId = Convert.ToInt32(TempData["idV"]);
+            }
+            ViewBag.Vendeurs = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
+            var venteMobileContext = _context.VendeurManufacturier.Include(v => v.Manufacturier).Include(v => v.Vendeur).Where(v => v.VendeurId == vendeurId);
+            return View(await venteMobileContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> CreateVendeurManufacturierss(int vendeurId)
+        {
+            ViewBag.Manufacturier = _context.Manufacturier;
+            Vendeur vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
+            TempData["idV"] = vendeur.VendeurId;
+            return View(vendeur);
         }
 
         [HttpPost]
-        public ActionResult CreateVendeurManufacturiers(int ManufacturierId,int[] VendeurId)
+        public async Task<IActionResult> CreateVendeurManufacturierss(int vendeurId, int[] ManufacturierIds)
         {
-            foreach (int VendId in VendeurId)
+            vendeurId = Convert.ToInt32(TempData["idV"]);
+            foreach (int ManufId in ManufacturierIds)
             {
-                VendeurManufacturier VendManufacturier = new VendeurManufacturier();
-                VendManufacturier = _context.VendeurManufacturier.Find(ManufacturierId,VendId);    
-                if (VendManufacturier == null)
+                VendeurManufacturier vendeurManufacturier = await _context.VendeurManufacturier
+                .Include(v => v.Manufacturier)
+                .Include(v => v.Vendeur)
+                .FirstOrDefaultAsync(m => m.VendeurId == vendeurId && m.ManufacturierId == ManufId);
+                if (vendeurManufacturier == null)
                 {
-                    VendManufacturier.ManufacturierId = ManufacturierId;
-                    VendManufacturier.VendeurId = VendId;
-                    _context.VendeurManufacturier.Add(VendManufacturier);
-                    _context.SaveChanges();
-                }               
+                    vendeurManufacturier = new VendeurManufacturier
+                    {
+                        ManufacturierId = ManufId,
+                        VendeurId = vendeurId
+                    };
+                    _context.VendeurManufacturier.Add(vendeurManufacturier);
+                    await _context.SaveChangesAsync();
+                }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("List", new { id = vendeurId });
         }
+
 
         // GET: VendeurManufacturiers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -74,7 +94,7 @@ namespace VenteMobile.Controllers
         public IActionResult Create()
         {
             ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque");
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom");
+            ViewData["idV"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom");
             return View();
         }
 
@@ -92,7 +112,7 @@ namespace VenteMobile.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", vendeurManufacturier.ManufacturierId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
+            ViewData["idV"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
             return View(vendeurManufacturier);
         }
 
@@ -110,7 +130,7 @@ namespace VenteMobile.Controllers
                 return NotFound();
             }
             ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", vendeurManufacturier.ManufacturierId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
+            ViewData["idV"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
             return View(vendeurManufacturier);
         }
 
@@ -147,7 +167,7 @@ namespace VenteMobile.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque", vendeurManufacturier.ManufacturierId);
-            ViewData["VendeurId"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
+            ViewData["idV"] = new SelectList(_context.Vendeur, "VendeurId", "VendeurNom", vendeurManufacturier.VendeurId);
             return View(vendeurManufacturier);
         }
 
@@ -167,7 +187,9 @@ namespace VenteMobile.Controllers
             {
                 return NotFound();
             }
-           
+
+            TempData["idV"] = idV;
+            TempData["idM"] = idM;
             return View(vendeurManufacturier);
         }
 
@@ -176,11 +198,16 @@ namespace VenteMobile.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int idV, int idM)
         {
-         
-            var vendeurManufacturier = await _context.VendeurManufacturier.FindAsync(idV,idM);
+
+            idV = Convert.ToInt32(TempData["idV"]);
+            idM = Convert.ToInt32(TempData["idM"]);
+            var vendeurManufacturier = await _context.VendeurManufacturier
+                .Include(v => v.Manufacturier)
+                .Include(v => v.Vendeur)
+                .FirstOrDefaultAsync(m => m.ManufacturierId == idM && m.VendeurId == idV);
             _context.VendeurManufacturier.Remove(vendeurManufacturier);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("List", new { id = idV });
         }
 
         private bool VendeurManufacturierExists(int id)

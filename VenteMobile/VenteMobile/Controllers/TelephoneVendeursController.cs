@@ -26,6 +26,26 @@ namespace VenteMobile.Controllers
             return View(await venteMobileContext.ToListAsync());
         }
 
+        public async Task<IActionResult> List(int vendeurId)
+        {
+
+            if (vendeurId == 0)
+            {
+                vendeurId = Convert.ToInt32(TempData["idV"]);
+            }
+            ViewBag.Vendeurs = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
+            var venteMobileContext = _context.TelephoneVendeur.Include(v => v.Telephone).Include(v => v.Vendeur).Where(v => v.VendeurId == vendeurId);
+            return View(await venteMobileContext.ToListAsync());
+        }
+
+        //public async Task<IActionResult> AjouterTelephone(int vendeurId)
+        //{
+        //    var Telephone = _context.Telephone.Join(Manufacturier, Telephone => Telephone.ManufacturierId, Manufacturier => Manufacturier.
+        //    Vendeur vendeur = await _context.Vendeur.FirstOrDefaultAsync(v => v.VendeurId == vendeurId);
+        //    TempData["idV"] = vendeur.VendeurId;
+        //    return View(vendeur);
+        //}
+
         // GET: TelephoneVendeurs/Details/5
         public async Task<IActionResult> Details(int? id)
         {

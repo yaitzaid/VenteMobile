@@ -48,7 +48,7 @@ namespace VenteMobile.Controllers
         // GET: Telephones/Create
         public IActionResult Create()
         {
-            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque");           
+            ViewData["ManufacturierId"] = new SelectList(_context.Manufacturier, "ManufacturierId", "ManufacturierMarque");
             return View();
         }
 

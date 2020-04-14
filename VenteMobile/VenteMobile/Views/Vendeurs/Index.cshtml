@@ -4,51 +4,61 @@
     ViewData["Title"] = "Index";
 }
 
-<h6>Liste Des Vendeurs</h6>
-
+<h3 style="text-align:center"><B> Liste Des Vendeurs</B></h3>
 <p>
-    <a asp-action="Create">Ajouter  <img src="~/images/create.png" alt="" style=" height: 40px;width: 40px;" /></a>
+    <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>Ajouter
+    </a>
 </p>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.VendeurNom)*@
                 Nom
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
                 Address
             </th>
-            <th>
+            <th style="text-align:center">
                 @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
                 NoTel
             </th>
-            <th></th>
+            <th style="text-align:center">
+                Assigner les manifacturier
+            </th>
+            <th style="text-align:center">
+                Opérations
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td style="text-align:center">
                     @Html.DisplayFor(modelItem => item.VendeurNom)
                 </td>
-                <td>
+                <td style="text-align:center">
                     @Html.DisplayFor(modelItem => item.VendeurAddress)
                 </td>
-                <td>
+                <td style="text-align:center">
                     @Html.DisplayFor(modelItem => item.VendeurNoTel)
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.VendeurId">
-                        <img src="~/images/edit.png" alt="" style=" height: 50px;width: 50px;" />
-
+                <td style="text-align:center">
+                    @Html.ActionLink("Assigner une manifacturier", "CreateVendeurManufacturierss", "VendeurManufacturiers", new { vendeurId = item.VendeurId })
+                </td>
+                <td style="text-align:center">
+                    <a href="@Url.Action("Edit",new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a> |
+                    <a href="@Url.Action("Details",new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-list"></span>
+                    </a> |
+                    <a href="@Url.Action("Delete", new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span>
                     </a>
-                    <a asp-action="Details" asp-route-id="@item.VendeurId">
-                        <img src="~/images/details.png" alt="" style=" height: 40px;width: 40px;" />
-                    </a>
-                    <a asp-action="Delete" asp-route-id="@item.VendeurId"> <img src="~/images/sup.png" alt="" style=" height: 40px;width: 40px;" /></a>
                 </td>
 
             </tr>
