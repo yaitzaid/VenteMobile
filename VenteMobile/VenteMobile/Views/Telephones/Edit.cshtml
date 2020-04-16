@@ -5,42 +5,46 @@
 }
 
 
-<h3 style="text-align:center"><B>Modifier un Telephone</B></h3>
+    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Changer les informations de vendeur</h4>
+    <div  style="color:black;background-color:aquamarine">
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TelephoneId" />
-            <div class="form-group">
-                <label asp-for="TelephoneModel" class="control-label"><B>Modèle</B></label>
-                <input asp-for="TelephoneModel" class="form-control" />
-                <span asp-validation-for="TelephoneModel" class="text-danger"></span>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="TelephoneId" />
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label asp-for="TelephoneModel" class="control-label"><B>Modèle</B></label>
+                            <input asp-for="TelephoneModel" class="form-control" />
+                            <span asp-validation-for="TelephoneModel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TelephoneCout" class="control-label"><B>Prix</B></label>
+                            <input asp-for="TelephoneCout" class="form-control" />
+                            <span asp-validation-for="TelephoneCout" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TelephoneCouleur" class="control-label"><B>Couleur</B></label>
+                            <input asp-for="TelephoneCouleur" class="form-control" />
+                            <span asp-validation-for="TelephoneCouleur" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ManufacturierId" class="control-label"><B>Fabriquant</B></label>
+                            <select asp-for="ManufacturierId" class="form-control" asp-items="ViewBag.ManufacturierId"></select>
+                            <span asp-validation-for="ManufacturierId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn  btnStyle" style="background-color:green; width:120px;" value="Sauvegarder" /> |
+                            <a href="@Url.Action("Index","telephones")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="TelephoneCout" class="control-label"><B>Prix</B></label>
-                <input asp-for="TelephoneCout" class="form-control" />
-                <span asp-validation-for="TelephoneCout" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TelephoneCouleur" class="control-label"><B>Couleur</B></label>
-                <input asp-for="TelephoneCouleur" class="form-control" />
-                <span asp-validation-for="TelephoneCouleur" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ManufacturierId" class="control-label"><B>Fabriquant</B></label>
-                <select asp-for="ManufacturierId" class="form-control" asp-items="ViewBag.ManufacturierId"></select>
-                <span asp-validation-for="ManufacturierId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+        <div>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Retour à la liste</a>
 </div>
 

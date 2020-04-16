@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
+    "C:\\Users\\Amine\\Desktop\\New folder (6)\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
+    "C:\\Users\\Amine\\Desktop\\New folder (6)\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "projectUniqueName": "C:\\Users\\Amine\\Desktop\\New folder (6)\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
         "projectName": "VenteMobile",
-        "projectPath": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
-        "packagesPath": "C:\\Users\\Youness\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Youness\\Pictures\\Projet_VF\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
+        "projectPath": "C:\\Users\\Amine\\Desktop\\New folder (6)\\VenteMobile\\VenteMobile\\VenteMobile\\VenteMobile.csproj",
+        "packagesPath": "C:\\Users\\Amine\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Amine\\Desktop\\New folder (6)\\VenteMobile\\VenteMobile\\VenteMobile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Youness\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Amine\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -58,6 +62,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "cloudscribe.Web.Pagination": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [

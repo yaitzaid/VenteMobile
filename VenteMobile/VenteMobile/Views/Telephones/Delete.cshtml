@@ -4,12 +4,12 @@
     ViewData["Title"] = "Delete";
 }
 
-<h3 style="text-align:center"><B>Supprimer telephone</B></h3>
-<h3>Voulez vous vraiment le supprimer?</h3>
-<div class="delete">
-    <hr />
-    <dl class="row">
+<div style="margin-top:60px; margin-bottom:10px;">
+    <h4 class="text-center table-bordered alert-danger" style="border-radius:5px; border-color:red; padding:10px;">Voulez vous vraiment supprimer ce telephone?</h4>
+    <dl class="dl-horizontal table-bordered jumbotron alert-danger " style="color:black;border-color:red;">
         <dt class="col-sm-2">
+
+
             @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
             Modèle
         </dt>
@@ -37,11 +37,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
         </dd>
-    </dl>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="TelephoneId" />
-        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
-        <a asp-action="Index">Retour à la liste</a>
-    </form>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="TelephoneId" />
+            <input type="submit" value="Supprimer" style="width:120px; background-color:red;" class="btn-danger btnStyle" /> |
+            <a href="@Url.Action("Index","telephones")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
+        </form>
 </div>
+ </dl>

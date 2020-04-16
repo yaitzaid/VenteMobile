@@ -1,34 +1,72 @@
-﻿@model IEnumerable<VenteMobile.Models.Telephone>
+﻿
+@model PagedList.IPagedList<VenteMobile.Models.Telephone>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h3 style="text-align:center"><B> Liste Des Telephones</B></h3>
+<div class="container jumbotron alert-success text-center table-bordered" style="position:relative ; top:50px; z-index:100; border-color:black;">
+    <h3 style="text-align:center"><B> Liste Des Téléphones</B></h3>
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-plus"></span>Ajouter
+        </a>
+    </p>
+</div>
+<div class="row container form-inline">
 
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>Ajouter
-    </a>
-</p>
+    <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
+
+   
+    
+</div>
+<div class="row container form-inline">
+    <div class="pull-right input-group" style="margin-top:22px;">
+        @using (Html.BeginForm("Index", "Telephones", FormMethod.Get))
+        {
+
+            @Html.TextBox("searchString", ViewBag.currentFilter as string, new
+            {
+                @class = "form-control",
+                @placeholder = "Rechercher"
+            })
+
+            <button type="submit" class="btn input-group-addon"><i class="glyphicon glyphicon-search" style="padding:3px;"></i></button>
+
+        }
+    </div>
+</div>
+
+@if (Model.Count == 0)
+{
+    <div class="alert-danger  jumbotron conainter table-bordered text-center" style="margin-top:60px; margin-bottom:10px;">
+        Aucun telephone disponible avec le filtre n'a &eacute;t&eacute; utilis&eacute;
+    </div>
+    <a href="@Url.Action("Index","Telephones")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+
+    return;
+}
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th style="text-align:center">
-                @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
-                Modèle
+                @Html.ActionLink("Model", "Index", new { sortOrder = ViewBag.NomSortParm })
+                
             </th>
             <th style="text-align:center">
-                @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
-                Prix
+                @Html.ActionLink("Prix", "Index", new { sortOrder = ViewBag.NomSortParm })
+                
             </th>
             <th style="text-align:center">
-                @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
-                Couleur
+                @Html.ActionLink("Couleur", "Index", new { sortOrder = ViewBag.NomSortParm })
+               
             </th>
             <th style="text-align:center">
-                @*@Html.DisplayNameFor(model => model.Manufacturier)*@
-                Fabricant
+                @Html.ActionLink("Fabricant", "Index", new { sortOrder = ViewBag.NomSortParm })
+             
             </th>
             <th style="text-align:center">
                 Opérations

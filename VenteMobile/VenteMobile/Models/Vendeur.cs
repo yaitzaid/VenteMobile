@@ -11,6 +11,7 @@ namespace VenteMobile.Models
         public string VendeurNom { get; set; }
         public string VendeurAddress { get; set; }
         public string VendeurNoTel { get; set; }
+       
         public  ICollection<TelephoneVendeur> TelephonesVendeurs { get; set; } = new HashSet<TelephoneVendeur>();
         public  ICollection<VendeurManufacturier> VendeursManufacturiers { get; set; } = new HashSet<VendeurManufacturier>();
     }

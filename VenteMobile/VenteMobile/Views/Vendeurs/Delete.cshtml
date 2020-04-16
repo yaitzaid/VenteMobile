@@ -5,39 +5,35 @@
 }
 
 
-<h3 style="text-align:center"><B> Supprimer Vendeur</B></h3>
 
 <h3>Voulez vous vraiment le supprimer?</h3>
-<div>
-    <hr />
-    <div style="margin-top:60px; margin-bottom:10px;">
-        <h4 class="text-center table-bordered alert-danger" style="border-radius:5px; border-color:red; padding:10px;">Voulez vous vraiment supprimer ce vendeur?</h4>
-        <dl class="dl-horizontal table-bordered jumbotron alert-danger " style="color:black;border-color:red;">
-            <dt class="col-sm-2">
-                @*@Html.DisplayNameFor(model => model.VendeurNom)*@
-                Nom
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.VendeurNom)
-            </dd>
-            <dt class="col-sm-2">
-                @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
-                Address
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.VendeurAddress)
-            </dd>
-            <dt class="col-sm-2">
-                @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
-                NoTel
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.VendeurNoTel)
-            </dd>
-            <div class="text-center">
-                La suppression de ce client va causer la suppression de toutes ses telephones et ces manifacturier !!!
-            </div>
-        </dl>
+
+<hr />
+<div style="margin-top:60px; margin-bottom:10px;">
+    <h4 class="text-center table-bordered alert-danger" style="border-radius:5px; border-color:red; padding:10px;">Voulez vous vraiment supprimer ce vendeur?</h4>
+    <dl class="dl-horizontal table-bordered jumbotron alert-danger " style="color:black;border-color:red;">
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.VendeurNom)*@
+            Nom
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VendeurNom)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VendeurAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
+            NoTel
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VendeurNoTel)
+        </dd>
+
 
 
 
@@ -50,4 +46,7 @@
                 <a class="btn btn-success btnStyle" style="width:120px; background-color:cornflowerblue;" href="@Url.Action("Index", "Vendeurs")">Retour </a>
             </div>
         }
-    </div>
+
+</div>
+
+</dl>

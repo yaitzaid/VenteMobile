@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PagedList;
 using VenteMobile.Data;
 using VenteMobile.Models;
 
@@ -19,10 +20,33 @@ namespace VenteMobile.Controllers
             _context = context;
         }
 
-        // GET: Manufacturiers
-        public async Task<IActionResult> Index()
+      
+        public async Task<IActionResult> Index(int? page, string sortOrder, string searchString, string currentFilter)
         {
-            return View(await _context.Manufacturier.ToListAsync());
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+
+            var Manufacturiers = await Task.Run(() => _context.Manufacturier.Select(x => x));
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                Manufacturiers = await Task.Run(() =>
+                _context.Manufacturier.Where(s => s.ManufacturierMarque.Contains(searchString)));
+
+            }
+            ViewBag.CurrentFilter = searchString;
+         
+            int pageSize = 50;
+            int pageNumber = (page ?? 1);
+            return View(Manufacturiers.ToPagedList(pageNumber, pageSize));
+
+            
         }
 
         // GET: Manufacturiers/Details/5

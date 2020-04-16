@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PagedList;
 using VenteMobile.Data;
 using VenteMobile.Models;
 
@@ -20,10 +21,37 @@ namespace VenteMobile.Controllers
         }
 
         // GET: Telephones
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page, string sortOrder, string searchString, string currentFilter)
         {
-            var venteMobileContext = _context.Telephone.Include(t => t.Manufacturier);
-            return View(await venteMobileContext.ToListAsync());
+        
+            ViewBag.CurrentSort = sortOrder;
+               if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            var telephones = await Task.Run(() => _context.Telephone.Include(x => x.Manufacturier));
+            List<Telephone> telephonesSearch = null;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+               
+               telephonesSearch = await Task.Run(() => _context.Telephone.Include(x => x.Manufacturier).Where(z => z.TelephoneModel.Contains(searchString)).ToListAsync());
+            }
+
+            ViewBag.CurrentFilter = searchString;
+          
+            int pageSize = 50;
+            int pageNumber = (page ?? 1);
+            if(telephonesSearch != null )
+            {
+                return View(telephonesSearch.ToPagedList(pageNumber, pageSize));
+            }
+             return View(telephones.ToPagedList(pageNumber, pageSize));
+        
+
         }
 
         // GET: Telephones/Details/5

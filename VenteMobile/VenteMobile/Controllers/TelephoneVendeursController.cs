@@ -22,12 +22,14 @@ namespace VenteMobile.Controllers
         // GET: TelephoneVendeurs
         public async Task<IActionResult> Index()
         {
-            var venteMobileContext = _context.TelephoneVendeur.Include(t => t.Telephone).Include(t => t.Vendeur);
-            return View(await venteMobileContext.ToListAsync());
+
+
+         var venteMobileContext = _context.TelephoneVendeur.Include(t => t.Telephone).Include(t => t.Vendeur);
+        return View(await venteMobileContext.ToListAsync());
+
         }
-        public async Task<IActionResult> List(int vendeurId)
-        {
-            if (vendeurId == 0)
+        public async Task<IActionResult> List(int vendeurId, string searchString, string currentFilter)
+        {if (vendeurId == 0)
             {
                 vendeurId = Convert.ToInt32(TempData["idV"]);
             }
