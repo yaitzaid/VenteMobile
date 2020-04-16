@@ -23,9 +23,9 @@ namespace VenteMobile.Controllers
         // GET: Telephones
         public async Task<IActionResult> Index(int? page, string sortOrder, string searchString, string currentFilter)
         {
-        
+
             ViewBag.CurrentSort = sortOrder;
-               if (searchString != null)
+            if (searchString != null)
             {
                 page = 1;
             }
@@ -37,20 +37,20 @@ namespace VenteMobile.Controllers
             List<Telephone> telephonesSearch = null;
             if (!string.IsNullOrEmpty(searchString))
             {
-               
-               telephonesSearch = await Task.Run(() => _context.Telephone.Include(x => x.Manufacturier).Where(z => z.TelephoneModel.Contains(searchString)).ToListAsync());
+
+                telephonesSearch = await Task.Run(() => _context.Telephone.Include(x => x.Manufacturier).Where(z => z.TelephoneModel.Contains(searchString)).ToListAsync());
             }
 
             ViewBag.CurrentFilter = searchString;
-          
+
             int pageSize = 50;
             int pageNumber = (page ?? 1);
-            if(telephonesSearch != null )
+            if (telephonesSearch != null)
             {
                 return View(telephonesSearch.ToPagedList(pageNumber, pageSize));
             }
-             return View(telephones.ToPagedList(pageNumber, pageSize));
-        
+            return View(telephones.ToPagedList(pageNumber, pageSize));
+
 
         }
 

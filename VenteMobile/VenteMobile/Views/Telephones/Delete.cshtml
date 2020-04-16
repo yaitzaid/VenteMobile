@@ -38,11 +38,11 @@
             @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
         </dd>
 
-
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="TelephoneId" />
-            <input type="submit" value="Supprimer" style="width:120px; background-color:red;" class="btn-danger btnStyle" /> |
-            <a href="@Url.Action("Index","telephones")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
-        </form>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TelephoneId" />
+        <input type="submit" value="Supprimer" style="width:120px; background-color:red;" class="btn-danger btnStyle" /> |
+        <a href="@Url.Action("Index","telephones")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
+    </form>
 </div>
- </dl>
+

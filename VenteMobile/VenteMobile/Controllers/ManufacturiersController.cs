@@ -20,7 +20,7 @@ namespace VenteMobile.Controllers
             _context = context;
         }
 
-      
+
         public async Task<IActionResult> Index(int? page, string sortOrder, string searchString, string currentFilter)
         {
             if (searchString != null)
@@ -41,12 +41,12 @@ namespace VenteMobile.Controllers
 
             }
             ViewBag.CurrentFilter = searchString;
-         
+
             int pageSize = 50;
             int pageNumber = (page ?? 1);
             return View(Manufacturiers.ToPagedList(pageNumber, pageSize));
 
-            
+
         }
 
         // GET: Manufacturiers/Details/5

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VenteMobile.Data;
 using VenteMobile.Models;
-
 using PagedList;
 using System.Web;
 
@@ -30,10 +29,10 @@ namespace VenteMobile.Controllers
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NomSortParm = string.IsNullOrEmpty(sortOrder) ? "nom_desc" : "";
-       
+
             ViewBag.AdresseSortParm = sortOrder == "Adresse" ? "adresse_desc" : "Adresse";
             ViewBag.NoTelSortParm = sortOrder == "NoTel" ? "noTel_desc" : "NoTel";
-           
+
             if (searchString != null)
             {
                 page = 1;
@@ -47,7 +46,7 @@ namespace VenteMobile.Controllers
             {
                 Vendeurs = await Task.Run(() =>
                 _context.Vendeur.Where(s => s.VendeurNom.Contains(searchString)));
-                                        
+
             }
 
             switch (sortOrder)
@@ -61,7 +60,7 @@ namespace VenteMobile.Controllers
                 case "adresse_desc":
                     Vendeurs = await Task.Run(() => Vendeurs.OrderByDescending(s => s.VendeurNoTel));
                     break;
-                
+
                 default:
                     Vendeurs = await Task.Run(() => Vendeurs.OrderBy(s => s.VendeurNom));
                     break;
@@ -69,7 +68,7 @@ namespace VenteMobile.Controllers
 
 
             ViewBag.CurrentFilter = searchString;
-         
+
             int pageSize = 50;
             int pageNumber = (page ?? 1);
             return View(Vendeurs.ToPagedList(pageNumber, pageSize));

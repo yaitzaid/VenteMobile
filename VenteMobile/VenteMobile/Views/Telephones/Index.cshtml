@@ -15,13 +15,7 @@
         </a>
     </p>
 </div>
-<div class="row container form-inline">
 
-    <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
-
-   
-    
-</div>
 <div class="row container form-inline">
     <div class="pull-right input-group" style="margin-top:22px;">
         @using (Html.BeginForm("Index", "Telephones", FormMethod.Get))
@@ -37,6 +31,9 @@
 
         }
     </div>
+</div>
+<div class="row container form-inline">
+    <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
 </div>
 
 @if (Model.Count == 0)
@@ -54,19 +51,19 @@
         <tr>
             <th style="text-align:center">
                 @Html.ActionLink("Model", "Index", new { sortOrder = ViewBag.NomSortParm })
-                
+
             </th>
             <th style="text-align:center">
                 @Html.ActionLink("Prix", "Index", new { sortOrder = ViewBag.NomSortParm })
-                
+
             </th>
             <th style="text-align:center">
                 @Html.ActionLink("Couleur", "Index", new { sortOrder = ViewBag.NomSortParm })
-               
+
             </th>
             <th style="text-align:center">
                 @Html.ActionLink("Fabricant", "Index", new { sortOrder = ViewBag.NomSortParm })
-             
+
             </th>
             <th style="text-align:center">
                 Opérations

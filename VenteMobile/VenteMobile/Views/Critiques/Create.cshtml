@@ -25,10 +25,7 @@
                 <input asp-for="CritiqueNom" class="form-control" />
                 <span asp-validation-for="CritiqueNom" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                    <label asp-for="TelephoneId" class="control-label"></label>
-                    <select asp-for="TelephoneId" class ="form-control" asp-items="ViewBag.TelephoneId"></select>
-                </div>*@
+
             <div class="form-group">
                 <input type="hidden" asp-for="TelephoneId" value="@ViewBag.TelephoneId" />
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -41,6 +38,10 @@
     @*<a asp-controller="Telephones" asp-action="Details" asp-route-id="TelephoneId"></a>*@
     @Html.ActionLink("Cliquer ici pour revenir", "Details", "Telephones", new { id = @ViewBag.TelephoneId })
 </div>
+@section Scripts{
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
 
 

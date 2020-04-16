@@ -7,16 +7,13 @@
     ViewData["Title"] = "Index";
 }
 
-    <div class="container jumbotron alert-success text-center table-bordered" style="position:relative ; top:50px; z-index:100; border-color:black;">
-        <h3 style="text-align:center"><B> Liste Des Manufacturier</B></h3>
-        <p>
-            <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-plus"></span>Ajouter
-            </a>
-        </p>
-    </div>
-<div class="row container form-inline">
- <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
+<div class="container jumbotron alert-success text-center table-bordered" style="position:relative ; top:50px; z-index:100; border-color:black;">
+    <h3 style="text-align:center"><B> Liste Des Manufacturier</B></h3>
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-plus"></span>Ajouter
+        </a>
+    </p>
 </div>
 <div class="row container form-inline">
     <div class="pull-right input-group" style="margin-top:22px;">
@@ -33,6 +30,9 @@
 
         }
     </div>
+</div>
+<div class="row container form-inline">
+    <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
 </div>
 @if (Model.Count == 0)
 {

@@ -41,4 +41,8 @@
 <div>
     @Html.ActionLink("Cliquer ici pour revenir", "Details", "Telephones", new { id = Model.Telephone.TelephoneId })
 </div>
+@section Scripts{
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

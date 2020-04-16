@@ -5,105 +5,105 @@
 }
 
 
-    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Informations sur le telephone</h4>
-    <dl  style="color:black;background-color:aquamarine">
+<h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Informations sur le telephone</h4>
+<dl style="color:black;background-color:aquamarine">
 
-        <div>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
-                    Modèle
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.TelephoneModel)
-                </dd>
-                <dt class="col-sm-2">
-                    @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
-                    Prix
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.TelephoneCout)
-                </dd>
-                <dt class="col-sm-2">
-                    @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
-                    Couleur
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.TelephoneCouleur)
-                </dd>
-                <dt class="col-sm-2">
-                    @*@Html.DisplayNameFor(model => model.Manufacturier)*@
-                    Fabriquant
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
-                </dd>
-            </dl>
-        
-        <div>
-            <a asp-controller="Critiques" asp-action="Create" asp-route-id="@Model.TelephoneId">Ajouter une Critique</a>
-            <h3 style="text-align:center"><B> Liste Des Critiques</B></h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @*@Html.DisplayNameFor(model => model.TelephoneModel)*@
+                Modèle
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TelephoneModel)
+            </dd>
+            <dt class="col-sm-2">
+                @*@Html.DisplayNameFor(model => model.TelephoneCout)*@
+                Prix
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TelephoneCout)
+            </dd>
+            <dt class="col-sm-2">
+                @*@Html.DisplayNameFor(model => model.TelephoneCouleur)*@
+                Couleur
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TelephoneCouleur)
+            </dd>
+            <dt class="col-sm-2">
+                @*@Html.DisplayNameFor(model => model.Manufacturier)*@
+                Fabriquant
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Manufacturier.ManufacturierMarque)
+            </dd>
+        </dl>
+</dl>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            @*@Html.DisplayNameFor(model => model.CritiqueText)*@
-                            Commentaire
-                        </th>
-                        <th>
-                            @*@Html.DisplayNameFor(model => model.CritiqueEtoiles)*@
-                            Etoiles
-                        </th>
-                        <th>
-                            @*@Html.DisplayNameFor(model => model.CritiqueNom)*@
-                            Client
-                        </th>
-                        <th>
-                            @*@Html.DisplayNameFor(model => model.Telephone)*@
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Critiques)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CritiqueText)
-                            </td>
-                            <td>
-                                @for (int etoile = 0; etoile < (item.CritiqueEtoiles); etoile++)
-                                {
-                                    <span class="glyphicon glyphicon-star"></span>
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CritiqueNom)
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.Telephone.TelephoneModel)*@
-                            </td>
-                            <td>
-                                <a asp-controller="Critiques" asp-action="Edit" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a> |
-                                <a asp-controller="Critiques" asp-action="Details" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
-                                    <span class="glyphicon glyphicon-list"></span>
-                                </a> | 
-                                <a asp-controller="Critiques" asp-action="Delete" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-</tr>
-                    }
-                </tbody>
-            </table>
+<div>
+    <a asp-controller="Critiques" asp-action="Create" asp-route-id="@Model.TelephoneId">Ajouter une Critique</a>
+    <h3 style="text-align:center"><B> Liste Des Critiques</B></h3>
 
-            </div>
-        </div>
-        <div>
-            <a asp-action="Edit" asp-route-id="@Model.TelephoneId" class="btn  btnStyle" style="background-color:gray; width:120px;">Edit</a> |
-            <a asp-action="Index" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueText)*@
+                    Commentaire
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueEtoiles)*@
+                    Etoiles
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.CritiqueNom)*@
+                    Client
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Telephone)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Critiques)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritiqueText)
+                    </td>
+                    <td>
+                        @for (int etoile = 0; etoile < (item.CritiqueEtoiles); etoile++)
+                        {
+                            <span class="glyphicon glyphicon-star"></span>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CritiqueNom)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Telephone.TelephoneModel)*@
+                    </td>
+                    <td>
+                        <a asp-controller="Critiques" asp-action="Edit" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a> |
+                        <a asp-controller="Critiques" asp-action="Details" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-list"></span>
+                        </a> |
+                        <a asp-controller="Critiques" asp-action="Delete" asp-route-id="@item.CritiqueId" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    </div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TelephoneId" class="btn  btnStyle" style="background-color:gray; width:120px;">Edit</a> |
+    <a asp-action="Index" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
 
-        </div>
+</div>

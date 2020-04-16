@@ -10,103 +10,103 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <div class="container jumbotron alert-success text-center table-bordered" style="position:relative ; top:50px; z-index:100; border-color:black;" >
-        <h3 style="text-align:center"><B> Liste Des Vendeurs</B></h3>
-        <p>
-            <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-plus"></span>Ajouter
-            </a>
-        </p>
-        </div>  
+<div class="container jumbotron alert-success text-center table-bordered" style="position:relative ; top:50px; z-index:100; border-color:black;">
+    <h3 style="text-align:center"><B> Liste Des Vendeurs</B></h3>
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-plus"></span>Ajouter
+        </a>
+    </p>
+</div>
+
+
+<div class="row container form-inline" style="margin:2px" ;>
+    <div class="pull-right input-group" style="margin-top:22px;">
+        @using (Html.BeginForm("Index", "Vendeurs", FormMethod.Get))
+        {
+
+            @Html.TextBox("searchString", ViewBag.currentFilter as string, new
+            {
+                @class = "form-control",
+                @placeholder = "Rechercher"
+            })
+
+            <button type="submit" class="btn input-group-addon"><i class="glyphicon glyphicon-search" style="padding:3px;"></i></button>
+
+        }
+    </div>
     <div class="row container form-inline">
 
         <span class="input-group ">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</span>
 
     </div>
 
-    <div class="row container form-inline" style="margin:2px" ;>
-        <div class="pull-right input-group" style="margin-top:22px;">
-            @using (Html.BeginForm("Index", "Vendeurs", FormMethod.Get))
-            {
 
-                @Html.TextBox("searchString", ViewBag.currentFilter as string, new
-                {
-                    @class = "form-control",
-                    @placeholder = "Rechercher"
-                })
-
-                <button type="submit" class="btn input-group-addon"><i class="glyphicon glyphicon-search" style="padding:3px;"></i></button>
-
-            }
+    @if (Model.Count == 0)
+    {
+        <div class="alert-danger  jumbotron conainter table-bordered text-center" style="margin-top:60px; margin-bottom:10px;">
+            Aucun client disponible avec le filtre n'a &eacute;t&eacute; utilis&eacute;
         </div>
+        <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+
+        return;
+    }
 
 
-        @if (Model.Count == 0)
+
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th style="text-align:center">
+                @Html.ActionLink("Nom", "Index", new { sortOrder = ViewBag.NomSortParm })
+
+            </th>
+            <th style="text-align:center">
+                @Html.ActionLink("Adresse", "Index", new { sortOrder = ViewBag.AdresseSortParm })
+            </th>
+            <th style="text-align:center">
+                @Html.ActionLink("Téléphone", "Index", new { sortOrder = ViewBag.NoTelSortParm })
+            </th>
+            @*<th style="text-align:center">
+                    Assigner les manifacturier
+                </th>*@
+            <th style="text-align:center">
+                Opérations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
         {
-            <div class="alert-danger  jumbotron conainter table-bordered text-center" style="margin-top:60px; margin-bottom:10px;">
-                Aucun client disponible avec le filtre n'a &eacute;t&eacute; utilis&eacute;
-            </div>
-            <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Back to List</a>
+            <tr>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.VendeurNom)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.VendeurAddress)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.VendeurNoTel)
+                </td>
+                @*<td style="text-align:center">
+                        @Html.ActionLink("Assigner une manifacturier", "CreateVendeurManufacturierss", "VendeurManufacturiers", new { vendeurId = item.VendeurId })
+                    </td>*@
+                <td style="text-align:center">
+                    <a href="@Url.Action("Edit",new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a> |
+                    <a href="@Url.Action("Details",new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-list"></span>
+                    </a> |
+                    <a href="@Url.Action("Delete", new {id = item.VendeurId})" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
 
-            return;
+            </tr>
         }
-
-
-
-    </div>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-
-                    <th style="text-align:center">
-                        @Html.ActionLink("Nom", "Index", new { sortOrder = ViewBag.NomSortParm })
-
-                    </th>
-                    <th style="text-align:center">
-                        @Html.ActionLink("Adresse", "Index", new { sortOrder = ViewBag.AdresseSortParm  })
-                    </th>
-                    <th style="text-align:center">
-                        @Html.ActionLink("Téléphone", "Index", new { sortOrder = ViewBag.NoTelSortParm })
-                    </th>
-                    @*<th style="text-align:center">
-                        Assigner les manifacturier
-                    </th>*@
-                    <th style="text-align:center">
-                        Opérations
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td style="text-align:center">
-                            @Html.DisplayFor(modelItem => item.VendeurNom)
-                        </td>
-                        <td style="text-align:center">
-                            @Html.DisplayFor(modelItem => item.VendeurAddress)
-                        </td>
-                        <td style="text-align:center">
-                            @Html.DisplayFor(modelItem => item.VendeurNoTel)
-                        </td>
-                        @*<td style="text-align:center">
-                            @Html.ActionLink("Assigner une manifacturier", "CreateVendeurManufacturierss", "VendeurManufacturiers", new { vendeurId = item.VendeurId })
-                        </td>*@
-                        <td style="text-align:center">
-                            <a href="@Url.Action("Edit",new {id = item.VendeurId})" class="btn btn-info btn-lg">
-                                <span class="glyphicon glyphicon-edit"></span>
-                            </a> |
-                            <a href="@Url.Action("Details",new {id = item.VendeurId})" class="btn btn-info btn-lg">
-                                <span class="glyphicon glyphicon-list"></span>
-                            </a> |
-                            <a href="@Url.Action("Delete", new {id = item.VendeurId})" class="btn btn-info btn-lg">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </a>
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
-   
+    </tbody>
+</table>

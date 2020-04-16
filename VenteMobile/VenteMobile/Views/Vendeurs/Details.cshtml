@@ -4,79 +4,54 @@
     ViewData["Title"] = "Details";
 }
 
+<div style="margin-top:60px; margin-bottom:10px;">
+    <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Informations sur le Vendeur</h4>
+    <dl style="color:black;background-color:aqua">
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurNom)*@
+                    Nom
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurNom)
+                </dd>
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
+                    Address
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurAddress)
+                </dd>
+                <dt class="col-sm-2">
+                    @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
+                    NoTel
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VendeurNoTel)
+                </dd>
+                <dt class="col-sm-2">
+                    La liste des Manifacturier
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.ActionLink("Cliquer ici pour afficher la liste des manifacturier", "List", "VendeurManufacturiers", new { vendeurId = Model.VendeurId })
+                </dd>
+                <dt class="col-sm-2">
+                    La liste des Telephones
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.ActionLink("Cliquer ici pour afficher la liste des Telephones", "List", "TelephoneVendeurs", new { vendeurId = Model.VendeurId })
+                </dd>
+            </dl>
+        </div>
+    </dl>
 
-    <div style="margin-top:60px; margin-bottom:10px;">
-        <h4 class="text-center table-bordered alert-success" style="border-radius:5px; padding:10px;">Informations sur le Vendeur</h4>
-        <dl  style="color:black;background-color:aqua">
+    <p>
+        <a href="@Url.Action("Edit","Vendeurs",new { id = Model.VendeurId })" class="btn  btnStyle" style="background-color:gray; width:120px;">Edit</a> |
+        <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
 
-
-            <div>
-                <hr />
-                <dl class="row">
-                    <dt class="col-sm-2">
-                        @*@Html.DisplayNameFor(model => model.VendeurNom)*@
-                        Nom
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.VendeurNom)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @*@Html.DisplayNameFor(model => model.VendeurAddress)*@
-                        Address
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.VendeurAddress)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @*@Html.DisplayNameFor(model => model.VendeurNoTel)*@
-                        NoTel
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.VendeurNoTel)
-                    </dd>
-                    <dt class="col-sm-2">
-                La liste des Manifacturier
-            </dt>
-            <dd class="col-sm-10">
-                @Html.ActionLink("Cliquer ici pour afficher la liste des manifacturier", "List", "VendeurManufacturiers", new { vendeurId = Model.VendeurId })
-            </dd>
-            <dt class="col-sm-2">
-                La liste des Telephones
-            </dt>
-            <dd class="col-sm-10">
-                @Html.ActionLink("Cliquer ici pour afficher la liste des Telephones", "List", "TelephoneVendeurs", new { vendeurId = Model.VendeurId })
-            </dd>
-        </dl>
-                </dl>
-
-                <p>
-                    <a href="@Url.Action("Edit","Vendeurs",new { id = Model.VendeurId })" class="btn  btnStyle" style="background-color:gray; width:120px;">Edit</a> |
-                    <a href="@Url.Action("Index","Vendeurs")" class="btn  btnStyle" style="background-color:cornflowerblue; width:120px;">Retour</a>
-
-                </p>
+    </p>
 
 
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-   
-
-
-    </div>
+</div>
